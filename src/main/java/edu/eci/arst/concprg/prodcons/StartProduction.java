@@ -20,7 +20,7 @@ public class StartProduction {
     
     public static void main(String[] args) {
         
-        Queue<Integer> queue=new LinkedBlockingQueue<>();
+        Queue<Integer> queue =new LinkedBlockingQueue<>();
         
         
         new Producer(queue,Long.MAX_VALUE).start();
@@ -32,7 +32,7 @@ public class StartProduction {
             Logger.getLogger(StartProduction.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+        System.out.println("2");
         new Consumer(queue).start();
     }
     
