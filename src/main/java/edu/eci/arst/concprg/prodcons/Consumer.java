@@ -23,7 +23,6 @@ public class Consumer extends Thread {
     public void run() {
         while (true) {
             synchronized (queue) {
-                
                 while (queue.size() == 0) {
                     try {
                         queue.wait();
@@ -36,6 +35,12 @@ public class Consumer extends Thread {
                 System.out.println("Consumer consumes " + elem);
                 queue.notify();
             }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+            
         }
     }
 }
