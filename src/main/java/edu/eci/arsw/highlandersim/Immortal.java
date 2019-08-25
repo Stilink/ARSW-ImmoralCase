@@ -52,8 +52,6 @@ public class Immortal extends Thread {
 
             synchronized (immortalsPopulation) {
 
-                
-
                 int myIndex = immortalsPopulation.indexOf(this);
 
                 int nextFighterIndex = r.nextInt(immortalsPopulation.size());
@@ -65,10 +63,10 @@ public class Immortal extends Thread {
 
                 im = immortalsPopulation.get(nextFighterIndex);
                         
-                this.fight(im);                
+                this.fight(im);       
             }
             try {
-                Thread.sleep(1);
+                Thread.sleep(1/*000*/);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -86,7 +84,7 @@ public class Immortal extends Thread {
             updateCallback.processReport("Fight: " + this + " vs " + i2+"\n");
         } else {
             updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
-        }
+        }   
 
     }
 
