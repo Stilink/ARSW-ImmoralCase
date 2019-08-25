@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,6 +27,7 @@ public class ControlFrame extends JFrame {
 
     private static final int DEFAULT_IMMORTAL_HEALTH = 100;
     private static final int DEFAULT_DAMAGE_VALUE = 10;
+    public static AtomicBoolean paused;
 
     private JPanel contentPane;
 
@@ -70,8 +72,9 @@ public class ControlFrame extends JFrame {
         btnStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
+                paused = new AtomicBoolean(false);    
                 immortals = setupInmortals();
-
+                
                 if (immortals != null) {
                     for (Immortal im : immortals) {
                         im.start();
@@ -88,17 +91,18 @@ public class ControlFrame extends JFrame {
         btnPauseAndCheck.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                /*
-				 * COMPLETAR
-                 */
                 int sum = 0;
-                for (Immortal im : immortals) {
-                    sum += im.getHealth();
-                }
+                paused.set(true);
 
-                statisticsLabel.setText("<html>"+immortals.toString()+"<br>Health sum:"+ sum);
-                
-                
+                synchronized(immortals){
+                    
+                    for (Immortal im : immortals) {
+                        sum += im.getHealth();
+                    }
+
+                    statisticsLabel.setText("<html>"+immortals.toString()+"<br>Health sum:"+ sum);
+                    
+                }
 
             }
         });
@@ -108,10 +112,10 @@ public class ControlFrame extends JFrame {
 
         btnResume.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                /**
-                 * IMPLEMENTAR
-                 */
-
+                synchronized(paused){
+                    paused.set(false);
+                    paused.notifyAll();
+                }
             }
         });
 
@@ -152,7 +156,7 @@ public class ControlFrame extends JFrame {
             List<Immortal> il = new LinkedList<Immortal>();
 
             for (int i = 0; i < ni; i++) {
-                Immortal i1 = new Immortal("im" + i, il, DEFAULT_IMMORTAL_HEALTH, DEFAULT_DAMAGE_VALUE,ucb);
+                Immortal i1 = new Immortal("im" + i, il, DEFAULT_IMMORTAL_HEALTH, DEFAULT_DAMAGE_VALUE,ucb, paused);
                 il.add(i1);
             }
             return il;
