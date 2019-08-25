@@ -30,23 +30,26 @@ public class Immortal extends Thread {
     public void run() {
 
         while (true) {
-            Immortal im;
+            synchronized(immortalsPopulation){    
+                Immortal im;
 
-            int myIndex = immortalsPopulation.indexOf(this);
+                int myIndex = immortalsPopulation.indexOf(this);
 
-            int nextFighterIndex = r.nextInt(immortalsPopulation.size());
+                int nextFighterIndex = r.nextInt(immortalsPopulation.size());
 
-            //avoid self-fight
-            if (nextFighterIndex == myIndex) {
-                nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
+                //avoid self-fight
+                if (nextFighterIndex == myIndex) {
+                    nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
+                }
+
+                im = immortalsPopulation.get(nextFighterIndex);
+
+                this.fight(im);
+
+                
             }
-
-            im = immortalsPopulation.get(nextFighterIndex);
-
-            this.fight(im);
-
             try {
-                Thread.sleep(1);
+                Thread.sleep(1/*000*/);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -63,7 +66,7 @@ public class Immortal extends Thread {
             updateCallback.processReport("Fight: " + this + " vs " + i2+"\n");
         } else {
             updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
-        }
+        }   
 
     }
 

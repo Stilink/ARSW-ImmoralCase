@@ -30,6 +30,7 @@ public class ControlFrame extends JFrame {
     private JPanel contentPane;
 
     private List<Immortal> immortals;
+    private boolean pause;
 
     private JTextArea output;
     private JLabel statisticsLabel;
