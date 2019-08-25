@@ -50,17 +50,17 @@ public class Immortal extends Thread {
 
             Immortal im;
 
+            
+
+            int myIndex = immortalsPopulation.indexOf(this);
+
+            int nextFighterIndex = r.nextInt(immortalsPopulation.size());
+
+            //avoid self-fight
+            if (nextFighterIndex == myIndex) {
+            nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
+            }
             synchronized (immortalsPopulation) {
-
-                int myIndex = immortalsPopulation.indexOf(this);
-
-                int nextFighterIndex = r.nextInt(immortalsPopulation.size());
-
-                //avoid self-fight
-                if (nextFighterIndex == myIndex) {
-                    nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
-                }
-
                 im = immortalsPopulation.get(nextFighterIndex);
                         
                 this.fight(im);       
