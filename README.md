@@ -9,7 +9,8 @@ El comportamiento se mantiene casi constante debido a que el consumidor esta pre
 La clase responsable es StartProduction ya que es la que inicia la producción.
 ![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/producer-consumer.png)
 
-Luego tratamos de mejorar el rendimiento con las condiciones de una producción lenta y un consumo rápido.
+Luego tratamos de mejorar el rendimiento con las condiciones de una producción lenta y un consumo rápido. Se visualiza un cambio gigante en el consumo.
 ![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/2-producter-consumer.png)
 
-
+Por ultimo pasamos a hacer una producción rápida y un consumo lento, el consumo varía solo un poco me atrevería a decir que esos pequeños picos que se ven en la gráfica reflejan el momento en el cual se comienza a cosnumir
+![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/3-producter-consumer.PNG)
