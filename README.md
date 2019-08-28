@@ -36,5 +36,8 @@ Despues de esto el pause and check quedó funcionando y también el invariante s
 Por ultimo implementamos el resume
 ![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/codeResume.PNG)
 
+Imágen del funcionamiento
+![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/funcResume.PNG)
+
 
 
