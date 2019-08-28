@@ -30,6 +30,9 @@ Para solucionar el pause and check solo tuvimos que crear un booleano atomico qu
 ![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/pause2.PNG)
 
 
+Despues de esto el pause and check quedó funcionando y también el invariante se mantiene.
+![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/FuncPause.PNG)
+
 
 
 
