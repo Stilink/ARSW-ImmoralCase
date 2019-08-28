@@ -27,7 +27,7 @@ Al ejecutar el programa y presionar el boton pause and check no solo no se detie
 
 Para solucionar el pause and check solo tuvimos que crear un booleano atomico que sirve para saber si los hilos deben continuar o detenerse, despues sincronizar la lista de inmortales para poder hacer una suma segura.
 ![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/Pause.PNG)
-![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/Pause2.PNG)
+![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/pause2.PNG)
 
 
 
