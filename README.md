@@ -20,7 +20,7 @@ Por ultimo pasamos a hacer una producción rápida y un consumo lento, el consum
 ### PART 2
 InmortalCase
 # 
-PARa N jugadores, asumiendo que el invariente se mantiene, al revisar la suma debería dar N*100.
+Para N jugadores, asumiendo que el invariente se mantiene, al revisar la suma debería dar N*100.
 
 Al ejecutar el programa y presionar el boton pause and check no solo no se detiene el programa, tampoco se mantiene el invariante.
 ![alt text1](https://github.com/Stilink/ARSW-ImmortalCase/blob/master/img/Confirmacion_salud.PNG)
